@@ -1,6 +1,6 @@
 # AI-Contact
 
-<img width="1281" height="697" alt="Screenshot 2026-10-24 174120" src="https://github.com/user-attachments/assets/2c1e8398-3efa-4cc5-8757-8d0a844f9fb6" />
+<img width="1280" height="696" alt="Screenshot 2026-10-24 080907" src="https://github.com/user-attachments/assets/35c72112-6b94-414b-85ea-a38ef83dc12f" />
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
