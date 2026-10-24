@@ -1,0 +1,13 @@
+name = "ai-contact-worker"
+main = "src/index.js"
+compatibility_date = "2026-01-01"
+
+# Configure this in the Cloudflare dashboard or with an email binding after
+# confirming your account's Email Workers configuration.
+# [[send_email]]
+# name = "AI_CONTACT"
+
+[vars]
+MODEL_API_URL = "https://api.example.com/v1/chat/completions"
+MODEL_NAME = "approved-model"
+MAX_BODY_CHARS = "12000"
