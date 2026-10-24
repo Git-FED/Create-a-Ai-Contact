@@ -1,5 +1,7 @@
 # AI-Contact
 
+<img width="1281" height="697" alt="Screenshot 2026-10-24 174120" src="https://github.com/user-attachments/assets/2c1e8398-3efa-4cc5-8757-8d0a844f9fb6" />
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 A clear email identity and lightweight landing page for an AI assistant—with a human fallback when the request matters.
@@ -11,6 +13,8 @@ AI assistants are often hidden behind generic forms, anonymous chat boxes, or em
 AI-Contact gives an organization a recognizable AI contact channel. The repository combines a ready-to-preview static site with a Cloudflare Email Worker scaffold that can receive inbound email, generate a reply through an approved OpenAI-compatible endpoint, and escalate selected requests instead of pretending to be certain.
 
 It is intentionally split in two. The public site can live on GitHub Pages or Cloudflare Pages without model secrets. The email Worker is deployed separately with Wrangler and keeps its provider key in Worker secrets.
+
+<img width="1283" height="697" alt="Screenshot 2026-10-24 174129" src="https://github.com/user-attachments/assets/67579b7b-ebba-4e19-ad87-090948cbfcb3" />
 
 ## See it work
 
@@ -81,6 +85,8 @@ npm run check
 
 For the email flow, use the verification checklist in [`docs/03-setup-guide.md`](docs/03-setup-guide.md): send a plain-text message, test an ordinary request, test an escalation phrase, and review logs for sensitive data.
 
+<img width="1282" height="697" alt="Screenshot 2026-10-24 174112" src="https://github.com/user-attachments/assets/e887b60a-c565-48be-9945-54f60e9bb96c" />
+
 ## What is included
 
 ### Static site
@@ -90,6 +96,8 @@ For the email flow, use the verification checklist in [`docs/03-setup-guide.md`]
 - `examples/email-list.html` — standalone Supabase-backed email-list signup and sign-in page.
 - `examples/favicon.svg` — scalable favicon.
 - `examples/assets/` — three simple promotional illustrations.
+
+<img width="1282" height="697" alt="Screenshot 2026-10-24 174112" src="https://github.com/user-attachments/assets/dff96f53-6d28-4f0e-a23c-1ba65d39bbc9" />
 
 ### Email Worker scaffold
 
@@ -101,6 +109,8 @@ For the email flow, use the verification checklist in [`docs/03-setup-guide.md`]
 - Forwards escalation cases to `ESCALATION_EMAIL` when configured.
 
 This is a scaffold, not a finished autonomous agent. The default model URL is a placeholder, attachment processing is not implemented, and the starter escalation matcher should be replaced with policy appropriate to the deployment.
+
+<img width="1282" height="700" alt="Screenshot 2026-10-24 174058" src="https://github.com/user-attachments/assets/aa7992fe-cf6e-4d61-bda7-f44a117c01a3" />
 
 ## Deployment
 
