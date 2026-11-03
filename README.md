@@ -97,8 +97,6 @@ For the email flow, use the verification checklist in [`docs/03-setup-guide.md`]
 - `examples/favicon.svg` — scalable favicon.
 - `examples/assets/` — three simple promotional illustrations.
 
-<img width="1282" height="697" alt="Screenshot 2026-10-24 174112" src="https://github.com/user-attachments/assets/dff96f53-6d28-4f0e-a23c-1ba65d39bbc9" />
-
 ### Email Worker scaffold
 
 - Receives an inbound email event and extracts sender, recipient, subject, message ID, and body.
