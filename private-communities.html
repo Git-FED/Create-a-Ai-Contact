@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Private FED-OS communities eligibility page.">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <title>Private Communities — FED-OS</title>
+  <style>
+    :root { --ink:#102a43; --muted:#52606d; --cream:#f7f3ea; --coral:#ef6f61; --blue:#d9eff2; --white:#fffdf8; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; display:grid; place-items:center; padding:24px; color:var(--ink); background:var(--cream); font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { width:min(680px,100%); padding:42px; background:var(--white); border:1px solid #102a4320; border-radius:28px; box-shadow:0 20px 55px #102a4318; }
+    .mark { width:42px; height:42px; display:grid; place-items:center; border-radius:13px; background:var(--ink); color:var(--coral); font-weight:900; font-size:1.4rem; }
+    h1 { margin:22px 0 10px; font-size:clamp(2rem,6vw,3.4rem); line-height:1; letter-spacing:-.06em; }
+    .muted { color:var(--muted); }
+    .notice { margin:24px 0; padding:18px; background:var(--blue); border-radius:16px; }
+    .checks { display:grid; gap:13px; margin:22px 0; }
+    label { display:flex; gap:10px; align-items:flex-start; }
+    input, select { accent-color:var(--coral); }
+    select { width:100%; margin-top:6px; padding:11px; border:1px solid #102a4330; border-radius:10px; background:#fff; color:var(--ink); font:inherit; }
+    button, a.button { display:inline-block; padding:12px 17px; border:0; border-radius:999px; background:var(--ink); color:var(--white); font:inherit; font-weight:800; text-decoration:none; cursor:pointer; }
+    button:disabled { opacity:.45; cursor:not-allowed; }
+    #result { display:none; margin-top:22px; padding:18px; border:1px solid #ef6f6180; border-radius:16px; }
+    #result.visible { display:block; animation:reveal .4s ease both; }
+    @keyframes reveal { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+    .back { display:inline-block; margin-top:22px; color:var(--muted); }
+    @media (max-width:520px) { main { padding:28px 22px; } }
+    @media (prefers-reduced-motion:reduce) { *, *::before, *::after { animation-duration:.01ms !important; } }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="mark" aria-hidden="true">✦</div>
+    <h1>Private Communities</h1>
+    <p class="muted">This page keeps restricted community links out of the public footer while making the eligibility requirements clear.</p>
+    <div class="notice"><strong>18+ only.</strong> The private Matrix community is available only to residents of Canada, Switzerland, Russia, Iran, Somalia, and Turkmenistan. Confirm your age and country before continuing.</div>
+    <div class="checks">
+      <label><input id="age-check" type="checkbox"> <span>I confirm that I am 18 or older.</span></label>
+      <label for="country">Country of residence</label>
+      <select id="country">
+        <option value="">Select your country</option>
+        <option>Canada</option>
+        <option>Switzerland</option>
+        <option>Russia</option>
+        <option>Iran</option>
+        <option>Somalia</option>
+        <option>Turkmenistan</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+    <button id="continue" type="button">Check eligibility</button>
+    <p id="message" class="muted" role="status" aria-live="polite"></p>
+    <div id="result">
+      <strong>Eligibility confirmed.</strong>
+      <p>You may continue to the private Matrix community. Matrix may apply its own rules and access controls.</p>
+      <a class="button" href="https://matrix.to/#/#fed-os:matrix.org" target="_blank" rel="noreferrer noopener">Open Private Matrix</a>
+    </div>
+    <a class="back" href="./index.html">← Back to FED-OS</a>
+  </main>
+  <script>
+    const allowed = new Set(['Canada', 'Switzerland', 'Russia', 'Iran', 'Somalia', 'Turkmenistan']);
+    const age = document.getElementById('age-check');
+    const country = document.getElementById('country');
+    const button = document.getElementById('continue');
+    const message = document.getElementById('message');
+    const result = document.getElementById('result');
+    button.addEventListener('click', () => {
+      result.classList.remove('visible');
+      if (!age.checked) { message.textContent = 'You must confirm that you are 18 or older.'; return; }
+      if (!allowed.has(country.value)) { message.textContent = 'This private community is restricted to the listed eligible countries.'; return; }
+      message.textContent = '';
+      result.classList.add('visible');
+    });
+  </script>
+</body>
+</html>
